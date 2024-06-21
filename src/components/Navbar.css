@@ -36,7 +36,7 @@
     font-family: 'Italiana' ,sans-serif;
     margin: 0;
     font-size: 64px; /* Increase font size */
-    color: #A5590F; /* Color to match the icon background */
+    color: #8E2927; /* Color to match the icon background */
     font-weight: 400; /* Adjust font weight as needed */
     padding-left:100px;
   }
@@ -47,6 +47,8 @@
     color: #A5590F; /* Adjust the color as needed */
     font-weight: 400; /* Adjust font weight as needed */
     text-align: center; /* Align text horizontally */
+    padding-left:100px;
+    font-family: 'Amiri', serif;
   }
   .header-md {
     -webkit-box-shadow:none;

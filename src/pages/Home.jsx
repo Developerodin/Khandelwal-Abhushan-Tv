@@ -152,13 +152,13 @@ const Home = () => {
               <div className="coin gold">
                 <img src="/assets/gold-coin.png" alt="Gold Coin" />
               </div>
-              <p>Gold</p>
+              <p style={{fontSize:'22px'}}>Gold</p>
             </div>
             <div className="coin-container">
               <div className="coin silver">
                 <img src="/assets/silver-coin.png" alt="Silver Coin" />
               </div>
-              <p>Silver</p>
+              <p style={{fontSize:'22px'}}>Silver</p>
             </div>
           </div>
           <div className="sip-header">Start SIP / Buy Precious Metal</div>
