@@ -1,0 +1,184 @@
+.custom-content {
+  background-color: #F8EBD8;
+}
+
+.container {
+  padding-top: 20px;
+  padding: 32px;
+  margin-bottom: 90px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-info {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.header-info p {
+  margin: 0;
+}
+
+.table-header {
+  background-color: #8E2927;
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #8E2927;
+  font-size: 1.3em;
+  border-radius: 8px 8px 0 0;
+  height: 60px;
+  align-items: center;
+  display: flex;
+}
+
+.table-row {
+  background-color: #F8EBD8;
+  border: 1px solid #8E2927;
+  font-size: 1.2em;
+  align-items: center;
+  display: flex;
+  height: 60px;
+}
+
+.second-table .table-header {
+  height: 50px;
+}
+
+.second-table .table-row {
+  height: 50px;
+}
+
+.first-table {
+  width: 100%;
+}
+
+.second-table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.table-row:nth-child(even) {
+  background-color: #F8EBD8;
+}
+
+.ion-text-end {
+  text-align: right;
+}
+
+.purchase-header {
+  margin: 20px 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 50px;
+
+  color: #8E2927;
+}
+
+.table-header, .table-row {
+  border: 1px solid #8E2927;
+}
+
+.table-row {
+  border-top: none; 
+}
+
+.table-row:first-child {
+  border-top: 1px solid #8E2927; 
+}
+
+
+.table-header ion-col, .table-row ion-col {
+  border-left: 1px solid #8E2927;
+  border-right: 1px solid #8E2927;
+}
+
+.table-header ion-col:first-child, .table-row ion-col:first-child {
+  border-left: none; 
+}
+
+.table-header ion-col:last-child, .table-row ion-col:last-child {
+  border-right: none;
+}
+
+.jewellery-heading {
+  text-align: center;
+  font-size: 52px;
+  color: #8E2927;
+  margin-bottom: 20px;
+}
+
+.coins-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 80px 0 80px 0;
+  padding-top: 100px;
+  text-align: center;
+}
+
+.coin {
+  margin: 0 40px;
+  padding: 20px;
+  border-radius: 32px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.coin img {
+  width: 157px;
+  height: 157px;
+  border-radius: 20px;
+  
+}
+
+.coin p {
+  margin-top: 10px;
+}
+
+.contact-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+
+  padding-top: 20px;
+}
+
+.contact {
+  text-align: center;
+  margin: 0 40px;
+  font-size: 1.2em;
+}
+
+.contact ion-icon {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.gold {
+  background-image: url('/assets/coins-bg.png');
+}
+
+.silver {
+  background-image: url('/assets/coins-bg.png');
+}
+
+.coin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.sip-header {
+   
+    margin: 20px 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    color: #8E2927;
+    
+  
+}
