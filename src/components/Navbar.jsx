@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonHeader, IonToolbar } from '@ionic/react';
-import './Navbar.css'; // Import the CSS file for custom styling
+import './Navbar.css'; 
 
 const Navbar = () => {
   return (

@@ -1,0 +1,13 @@
+ion-content.custom-content {
+    font-family: 'Amiri', serif;
+    color: #8E2927;
+  }
+  
+  /* Specific styles for headings and paragraphs */
+  ion-content.custom-content h1,
+  ion-content.custom-content h2,
+  ion-content.custom-content p,
+  ion-content.custom-content ul {
+    font-family: 'Amiri', serif;
+    color: #8E2927;
+  }
