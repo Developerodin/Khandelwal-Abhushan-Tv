@@ -1,56 +1,113 @@
+/* Styles for desktop and large screens */
 .header-logo {
+  display: flex;
+  align-items: center;
+  background-color: #F8EBD8;
+  height: 200px;
+}
+
+.icon-background {
+  background-color: #8E2927;
+  padding: 28px;
+  border-radius: 0 0 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  margin-left: 0;
+  padding-left: 0;
+  width: 35vw;
+}
+
+.logo-icon {
+  width: 154px;
+  height: 145px;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-text h2 {
+  font-family: 'Italiana', sans-serif;
+  margin: 0;
+  font-size: 64px;
+  color: #8E2927;
+  font-weight: 400;
+  padding-left: 100px;
+}
+
+.header-text p {
+  margin: 0;
+  font-size: 20px;
+  color: #A5590F;
+  font-weight: 400;
+  text-align: center;
+  padding-left: 100px;
+  font-family: 'Amiri', serif;
+}
+
+.header-md {
+  -webkit-box-shadow: none;
+}
+
+/* Styles for mobile devices */
+@media (max-width: 768px) {
+  .header-logo {
     display: flex;
     align-items: center;
-     /* Add some padding for spacing */
-    background-color: #F8EBD8; /* Light background color */
-      
-    height: 200px; /* Adjust height as needed */
+    background-color: #F8EBD8;
+    
+    height: auto;
+    
+    
   }
-  
+
   .icon-background {
-    background-color: #8E2927; /* Background color for the icon */
-    padding: 28px;
-    border-radius: 0 0 80px 0; /* Make it circular */
+    background-color: #8E2927;
+    
+    border-radius: 0 40% 40% 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 16px; 
+    margin-right: 16px;
     margin-left: 0;
-    padding-left: 0;
-    width: 35vw;
+    padding-left: 15px;
+    width: 18vw;
   }
-  
+
   .logo-icon {
-    width: 154px; /* Adjust the size as needed */
-    height: 145px;
+    width: 50px;
+    height: auto;
   }
-  
+
   .header-text {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Align items horizontally */
-    justify-content: center; /* Align items vertically */
+    padding-left: 0;
   }
 
   .header-text h2 {
-    font-family: 'Italiana' ,sans-serif;
+    font-family: 'Italiana', sans-serif;
     margin: 0;
-    font-size: 64px; /* Increase font size */
-    color: #8E2927; /* Color to match the icon background */
-    font-weight: 400; /* Adjust font weight as needed */
-    padding-left:100px;
+    font-size: 27px;
+    color: #A5590F;
+    font-weight: 400;
+    padding-left: 0;
   }
 
   .header-text p {
     margin: 0;
-    font-size: 20px; /* Increase font size */
-    color: #A5590F; /* Adjust the color as needed */
-    font-weight: 400; /* Adjust font weight as needed */
-    text-align: center; /* Align text horizontally */
-    padding-left:100px;
-    font-family: 'Amiri', serif;
+    font-size: 12px;
+    color: #A5590F;
+    font-weight: 400;
+    padding-left: 0;
   }
+
   .header-md {
-    -webkit-box-shadow:none;
-  }  
-  
+    -webkit-box-shadow: none;
+  }
+}

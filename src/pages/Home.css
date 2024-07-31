@@ -1,5 +1,7 @@
+/* Existing styles */
 .custom-content {
   background-color: #F8EBD8;
+  padding: 16px;
 }
 
 .container {
@@ -15,11 +17,12 @@
   justify-content: space-evenly;
   margin-bottom: 20px;
   font-size: 1.5em;
-  font-family:'Amiri', serif;
+  font-family: 'Amiri', serif;
 }
 
 .header-info p {
   margin: 0;
+  color: #8E2927;
 }
 
 .table-header {
@@ -32,8 +35,7 @@
   height: 60px;
   align-items: center;
   display: flex;
-  font-family:'Amiri', serif;
-
+  font-family: 'Amiri', serif;
 }
 
 .table-row {
@@ -43,7 +45,7 @@
   align-items: center;
   display: flex;
   height: 60px;
-  font-family:'Amiri', serif;
+  font-family: 'Amiri', serif;
   font-weight: 700;
   color: #8E2927;
 }
@@ -79,7 +81,7 @@
   font-weight: 400;
   text-align: center;
   padding: 25px 0;
-  font-family:'Amiri', serif;
+  font-family: 'Amiri', serif;
   color: #8E2927;
 }
 
@@ -88,13 +90,12 @@
 }
 
 .table-row {
-  border-top: none; 
+  border-top: none;
 }
 
 .table-row:first-child {
-  border-top: 1px solid #8E2927; 
+  border-top: 1px solid #8E2927;
 }
-
 
 .table-header ion-col, .table-row ion-col {
   border-left: 1px solid #8E2927;
@@ -102,7 +103,7 @@
 }
 
 .table-header ion-col:first-child, .table-row ion-col:first-child {
-  border-left: none; 
+  border-left: none;
 }
 
 .table-header ion-col:last-child, .table-row ion-col:last-child {
@@ -111,20 +112,22 @@
 
 .jewellery-heading {
   text-align: center;
-  font-size: 52px;
+  font-size: 54px ;
   color: #8E2927;
   margin-bottom: 20px;
   font-weight: 400 !important;
-  font-family:'Amiri', serif;
+  font-family: 'Amiri', serif;
 }
 
 .coins-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   margin: 80px 0 80px 0;
   padding-top: 100px;
   text-align: center;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .coin {
@@ -140,21 +143,18 @@
   width: 157px;
   height: 157px;
   border-radius: 20px;
-  
 }
 
 .coin p {
   margin-top: 10px;
-  font-family:'Amiri', serif;
+  font-family: 'Amiri', serif;
   font-size: 27px;
-
 }
 
 .contact-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-top: 40px;
-
   padding-top: 20px;
 }
 
@@ -162,7 +162,7 @@
   text-align: center;
   margin: 0 40px;
   font-size: 27px;
-  font-family:'Amiri', serif;
+  font-family: 'Amiri', serif;
   font-weight: 700;
   color: #8E2927;
 }
@@ -185,14 +185,133 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
+
+.coin-container:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+
 .sip-header {
-   
-    margin: 20px 0;
-    font-size: 29px;
-    font-weight: 400;
+  margin: 20px 0;
+  font-size: 29px;
+  font-weight: 400;
+  text-align: center;
+  color: #8E2927;
+  font-family: 'Amiri', serif;
+}
+
+/* New styles for mobile responsiveness and table scrolling */
+@media (max-width: 767px) {
+  /* .header-info {
+    flex-direction: column;
+    gap: 8px;
+  } */
+
+  .table-container {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .table {
+    display: table;
+    width: auto;
+    min-width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table-header ion-col, .table-row ion-col {
+    width: 100%; 
+    min-width: 100%; 
+  }
+
+  .coins-section {
+    
+    
+    margin: 0;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .coin-container {
+    cursor: pointer;
+
+  }
+  .coin-container:hover {
+    transform: scale(1);
+    transition: transform 0.3s;
+  }
+
+  .coin img {
+    width: 90px !important;
+    height: 90px;
+    max-width: 90px !important;
+  }
+  .contact-section {
+    
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .sip-header {
+    font-size: 24px;
+  }
+  .contact {
+    margin-bottom: 16px;
+    font-size: 19px;
+  }
+  .coin {
+    margin: 0;
+    
+  }
+}
+
+
+
+
+
+@media (max-width: 767px) {
+  .header-info {
+    padding: 0;
     text-align: center;
-    color: #8E2927;
-    font-family:'Amiri', serif;
+    font-size: 20px;
+    justify-content: space-between;
+  }
+
+  .card {
+    width: calc(100% - 20px);
+  }
+  .jewellery-heading {
+    font-size: 30px;
+    margin: 0;
+  }
+  .custom-card {
+    background: transparent;
+    --ion-background-color: transparent;
+    border: 1.42px solid #B87115;
+    border-radius: 12px;
+    margin-bottom: 16px;  /* Adding margin for better spacing */
+    width: calc(100% - 20px);
+  }
+  
+  .custom-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 4px 0;  /* Adding some vertical margin between rows */
+  }
+  
+  .price-row span {
+    font-size: 16px;  /* Adjust font size as needed */
+    color: #B87115;
+    line-height: 18px;  /* Adjust color as needed */
+  }
   
 }
+
+
