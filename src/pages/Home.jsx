@@ -15,6 +15,7 @@ const Home = () => {
   const history = useIonRouter();
   const [goldRates, setGoldRates] = useState([]);
   const [oldGoldRates, setOldGoldRates] = useState([]);
+  const [updateRates, setUpdateRates] = useState([]);
   const [dateTime, setDateTime] = useState(getISTDateTime());
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
 
@@ -31,19 +32,33 @@ const Home = () => {
   
         
         const mcxGoldItem = data.find(item => item.id === '6');
-  
-        
-        const updatedGoldRates = [
+        const mcxSilverItem = data.find(item => item.id === '7');
+
+        const updateRates = [
           mcxGoldItem && {
             type: 'Gold MCX',
-            rate: mcxGoldItem.price * 10,
+            rate: '10gm',
             makingCharges: 2.00, 
             amountAfterMaking: mcxGoldItem.price * 10 * 1.02,
             gst: 3.00,
-            amount: mcxGoldItem.price * 10 * 1.02 * 1.03,
+            amount: mcxGoldItem.price * 10 ,
           },
+          mcxSilverItem && {
+            type: 'Silver MCX',
+            rate: '1kg',
+            makingCharges: 2.00,
+            amountAfterMaking: mcxSilverItem.price * 10 * 1.02,
+            gst: 3.00,
+            amount: mcxSilverItem.price * 1000,
+          }
+        ].filter(Boolean);
+
+  
+        
+        const updatedGoldRates = [
+          
           {
-            type: 'Gold 99.50 & 91.6',
+            type: 'Gold 99.50 & 91.6 Hallmark',
             rate: data.find(item => item.name === '24k & 91.6 Gold').price * 10,
             makingCharges: 2.00,
             amountAfterMaking: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 1.02,
@@ -51,41 +66,36 @@ const Home = () => {
             amount: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 1.02 * 1.03,
           },
           {
-            type: 'Gold 916 Hallmark',
-            rate: data.find(item => item.name === '916 Hallmark').price * 10,
+            type: 'Gold 916 (KA Brand)',
+            rate: data.find(item => item.name === '24k & 91.6 Gold').price * 10  * (1 - 0.084),
             makingCharges: 11.35,
-            amountAfterMaking: data.find(item => item.name === '916 Hallmark').price * 10 * 1.1135,
+            amountAfterMaking: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 1.1135 * (1 - 0.084),
             gst: 3.00,
-            amount: data.find(item => item.name === '916 Hallmark').price * 10 * 1.1135 * 1.03,
+            amount: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 1.1135 * 1.03 * (1 - 0.084),
           }
-        ].filter(Boolean); 
+        ];
   
         const updatedOldGoldRates = [
           {
             type: 'Old Gold 99.50',
-            rate: data.find(item => item.name === 'Old Gold 24k').price * 10,
+            rate: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 0.98,
             makingCharges: 2.00,
-            amountAfterMaking: data.find(item => item.name === 'Old Gold 24k').price * 10 * 1.02,
-            amount: data.find(item => item.name === 'Old Gold 24k').price * 10 * 1.02 * 1.03,
+            amountAfterMaking: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 1.02,
+            amount: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 0.98,
           },
           {
-            type: 'Old Gold 916 (-8.40%)',
-            rate: data.find(item => item.name === 'Old Gold 916').price * 10,
+            type: 'Old Gold 916 Hallmark',
+            rate: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 0.98 * (1 - 0.084),
             makingCharges: -8.40,
-            amountAfterMaking: data.find(item => item.name === 'Old Gold 916').price * 10 * 0.916 * (1 - 0.084),
-            amount: data.find(item => item.name === 'Old Gold 916').price * 10 * 0.916 * (1 - 0.084) * 1.03,
+            amountAfterMaking: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 0.916 * (1 - 0.084),
+            amount: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 0.98 * (1 - 0.084),
           },
-          {
-            type: 'Old Gold 916 (KA)',
-            rate: data.find(item => item.name === 'Old Gold 916 Branded').price * 10,
-            makingCharges: 2.00,
-            amountAfterMaking: data.find(item => item.name === 'Old Gold 916 Branded').price * 10 * 1.02,
-            amount: data.find(item => item.name === 'Old Gold 916 Branded').price * 10 * 1.02 * 1.03,
-          }
+          
         ];
   
         setGoldRates(updatedGoldRates);
         setOldGoldRates(updatedOldGoldRates);
+        setUpdateRates(updateRates);
       } else {
         console.error('Error fetching price data:', response.status, response.statusText);
       }
@@ -97,9 +107,13 @@ const Home = () => {
   useEffect(() => {
     fetchPriceData();
 
-    const intervalId = setInterval(() => {
+    const fetchIntervalId = setInterval(() => {
+      fetchPriceData();
+    }, 10000); 
+
+    const timeIntervalId = setInterval(() => {
       setDateTime(getISTDateTime());
-    }, 1000);
+    }, 1000); 
 
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 767);
@@ -108,7 +122,8 @@ const Home = () => {
     window.addEventListener('resize', handleResize);
 
     return () => {
-      clearInterval(intervalId);
+      clearInterval(fetchIntervalId);
+      clearInterval(timeIntervalId);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
@@ -117,11 +132,15 @@ const Home = () => {
     history.push('/gold-coin');
   }
 
+  const handleSilverCoinClick = () => {
+    history.push('/silver-coin');
+  }
+
   return (
     <IonPage>
       <Navbar />
       <IonContent className="custom-content" fullscreen style={{ "--ion-background-color": "#F8EBD8" }}>
-        <h2 className="jewellery-heading">Jewellery</h2>
+        <h2 className="purchase-header">NEW GOLD PURCHASE</h2>
         <div className="container">
           <div className="header-info">
             <p>Date: {dateTime.date}</p>
@@ -130,6 +149,29 @@ const Home = () => {
 
           {!isMobile ? (
             <>
+            <IonGrid className="second-table" style={{marginBottom:'20px'}}>
+                <IonRow className="table-header">
+                  <IonCol>Today's Price</IonCol>
+                  <IonCol className='ion-text-center'>Rate Per</IonCol>
+                  {/* <IonCol className='ion-text-center'>Amount After Making</IonCol> */}
+                  <IonCol className='ion-text-center'>Amount</IonCol>
+                </IonRow>
+                {updateRates.length > 0 ? (
+                  updateRates.map((item, index) => (
+                    <IonRow key={index} className="table-row second-table-row">
+                      <IonCol>{item.type}</IonCol>
+                      <IonCol className='ion-text-center'>{item.rate}</IonCol>
+                      {/* <IonCol className='ion-text-center'>{item.amountAfterMaking.toFixed(2)}</IonCol> */}
+                      <IonCol className='ion-text-center'>{item.amount.toFixed(2)}</IonCol>
+                    </IonRow>
+                  ))
+                ) : (
+                  <IonRow className="table-row second-table-row">
+                    <IonCol colSpan="4" className='ion-text-center'>Loading data...</IonCol>
+                  </IonRow>
+                )}
+              </IonGrid>
+              
               <IonGrid className="first-table">
                 <IonRow className="table-header">
                   <IonCol>Today's Gold Price</IonCol>
@@ -156,12 +198,12 @@ const Home = () => {
                   </IonRow>
                 )}
               </IonGrid>
-              <div className="purchase-header">YOUR GOLD PURCHASE</div>
+              <div className="purchase-header">OLD GOLD PURCHASE</div>
               <IonGrid className="second-table">
                 <IonRow className="table-header">
                   <IonCol>Today's Gold Price</IonCol>
                   <IonCol className='ion-text-center'>Rate Per 10 GM</IonCol>
-                  <IonCol className='ion-text-center'>Amount After Making</IonCol>
+                  {/* <IonCol className='ion-text-center'>Amount After Making</IonCol> */}
                   <IonCol className='ion-text-center'>Amount</IonCol>
                 </IonRow>
                 {oldGoldRates.length > 0 ? (
@@ -169,7 +211,7 @@ const Home = () => {
                     <IonRow key={index} className="table-row second-table-row">
                       <IonCol>{item.type}</IonCol>
                       <IonCol className='ion-text-center'>{item.rate.toFixed(2)}</IonCol>
-                      <IonCol className='ion-text-center'>{item.amountAfterMaking.toFixed(2)}</IonCol>
+                      {/* <IonCol className='ion-text-center'>{item.amountAfterMaking.toFixed(2)}</IonCol> */}
                       <IonCol className='ion-text-center'>{item.amount.toFixed(2)}</IonCol>
                     </IonRow>
                   ))
@@ -183,6 +225,40 @@ const Home = () => {
           ) : (
             <>
             <div className="card-container">
+              {updateRates.length > 0 ? (
+                updateRates.map((item, index) => (
+                  <IonCard className="custom-card" key={index}>
+                    <IonCardHeader style={{ paddingBottom: "0" }}>
+                      <div className="price-row">
+                        <IonCardTitle
+                          style={{
+                            fontSize: "18px",
+                            lineHeight: "22px",
+                            color: "#B87115",
+                            fontWeight: "700",
+                            paddingBottom: "0",
+                          }}
+                        >
+                          {item.type} 
+                        </IonCardTitle>
+                        <span> ₹{item.amount.toFixed(2)}</span>
+                      </div>
+                    </IonCardHeader>
+          
+                    <IonCardContent className="custom-content">
+                      {/* <div className="price-row">
+                        <span>Amount: ₹{item.amount.toFixed(2)}</span>
+                      </div> */}
+                    </IonCardContent>
+                  </IonCard>
+                ))
+              ) : (
+                <p>Loading data...</p>
+              )}
+            </div>
+
+
+            <div className="card-container">
               {goldRates.length > 0 ? (
                 goldRates.map((item, index) => (
                   <IonCard className="custom-card" key={index}>
@@ -190,7 +266,7 @@ const Home = () => {
                       <div className="price-row">
                         <IonCardTitle
                           style={{
-                            fontSize: "19px",
+                            fontSize: "18px",
                             lineHeight: "22px",
                             color: "#B87115",
                             fontWeight: "700",
@@ -230,7 +306,7 @@ const Home = () => {
                       <div className="price-row">
                         <IonCardTitle
                           style={{
-                            fontSize: "19px",
+                            fontSize: "18px",
                             lineHeight: "22px",
                             color: "#B87115",
                             fontWeight: "700",
@@ -250,14 +326,14 @@ const Home = () => {
                         <span>Rate per 10 GM:</span>
                         <span>₹{item.rate.toFixed(2)}</span>
                       </div> */}
-                      <div className="price-row">
+                      {/* <div className="price-row">
                         <span>Making: {item.makingCharges}%</span>
                         <span>₹{item.amountAfterMaking.toFixed(2)}</span>
                       </div>
                       <div className="price-row">
                         <span>GST: 3%</span>
                         <span>₹{item.amount.toFixed(2)}</span>
-                      </div>
+                      </div> */}
                     </IonCardContent>
                   </IonCard>
                 ))
@@ -275,7 +351,7 @@ const Home = () => {
               </div>
               <p style={{fontSize:'22px',color: '#8E2927'}}>Gold</p>
             </div>
-            <div className="coin-container" onClick={handleCoinClick}>
+            <div className="coin-container" onClick={handleSilverCoinClick}>
               <div className="coin silver">
                 <img src="/assets/silver-coin.png" alt="Silver Coin" />
               </div>

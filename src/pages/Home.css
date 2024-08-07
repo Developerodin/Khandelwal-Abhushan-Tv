@@ -99,7 +99,7 @@
 
 .table-header ion-col, .table-row ion-col {
   border-left: 1px solid #8E2927;
-  border-right: 1px solid #8E2927;
+  /* border-right: 1px solid #8E2927; */
 }
 
 .table-header ion-col:first-child, .table-row ion-col:first-child {
@@ -264,6 +264,11 @@
   .coin {
     margin: 0;
     
+  }
+  .purchase-header {
+    font-size: 24px;
+    margin: 0;
+    padding: 10px 0;
   }
 }
 

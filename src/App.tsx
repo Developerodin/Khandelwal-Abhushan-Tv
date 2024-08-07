@@ -4,6 +4,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import GoldCoin from './pages/GoldCoin.jsx'
+import SilverCoin from './pages/SilverCoin.jsx'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -52,6 +53,9 @@ const App: React.FC = () => (
         </Route>
         <Route path="/gold-coin">
           <GoldCoin />
+        </Route>
+        <Route path="/silver-coin">
+          <SilverCoin />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

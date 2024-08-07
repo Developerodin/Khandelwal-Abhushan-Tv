@@ -1,0 +1,102 @@
+/* Existing styles */
+.custom-header {
+    background-color: #b71c1c;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .custom-title {
+    font-size: 1.2em;
+    margin: 0;
+  }
+  
+  .address {
+    margin: 0;
+    font-size: 0.8em;
+  }
+  
+  .custom-contentt {
+    background-color: #F8EBD8 !important;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  .gold-image {
+    width: 100px;
+    height: auto;
+  }
+  
+  .table-headerr {
+    color: #8E2927;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .table-roww {
+    background-color: #f4e0c2;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .table-roww:nth-child(even) {
+    background-color: #f4e0c2;
+    margin-top: 10px;
+  }
+  
+  .custom-tab-bar {
+    background-color: #b71c1c;
+    color: #fff;
+  }
+  
+  .ion-padding {
+    padding-bottom: 70px; 
+  }
+  
+  /* New styles for centering the table on desktop */
+  @media (min-width: 1024px) {
+    .gold-table-container {
+      /* display: flex;
+      justify-content: center; */
+    }
+  
+    .gold-table {
+      width: 48%;
+    }
+   
+  }
+
+  .centered-buttons {
+    display: flex;
+    
+    position: relative;
+    justify-content: left;
+    left: 26%;
+    color: #8E2927;
+  }
+
+@media (max-width: 767px) {
+    .centered-buttons {
+      display: flex;
+      justify-content: left;
+      left: 5%;
+    }
+  }  
+  
