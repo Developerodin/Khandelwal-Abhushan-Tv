@@ -81,7 +81,7 @@ const SilverCoin = () => {
     style={{ color: '#8E2927' }}
   />
 </IonButtons>
-        <div style={{ padding: '16px', marginBottom: '90px' }}>
+        <div style={{ padding: '0 16px 16px 16px', marginBottom: '90px' }}>
           <div className="image-container">
             <img src="/assets/silver-coin.png" alt="Gold Coin" className="gold-image" />
           </div>

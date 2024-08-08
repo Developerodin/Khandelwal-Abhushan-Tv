@@ -35,6 +35,7 @@ const Home = () => {
         const mcxSilverItem = data.find(item => item.id === '7');
 
         const updateRates = [
+          
           mcxGoldItem && {
             type: 'Gold MCX',
             rate: '10gm',
@@ -50,7 +51,8 @@ const Home = () => {
             amountAfterMaking: mcxSilverItem.price * 10 * 1.02,
             gst: 3.00,
             amount: mcxSilverItem.price * 1000,
-          }
+          },
+          
         ].filter(Boolean);
 
   
@@ -69,9 +71,9 @@ const Home = () => {
             type: 'Gold 916 (KA Brand)',
             rate: data.find(item => item.name === '24k & 91.6 Gold').price * 10  * (1 - 0.084),
             makingCharges: 11.35,
-            amountAfterMaking: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 1.1135 * (1 - 0.084),
+            amountAfterMaking: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 1.1135371 * (1 - 0.084),
             gst: 3.00,
-            amount: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 1.1135 * 1.03 * (1 - 0.084),
+            amount: data.find(item => item.name === '24k & 91.6 Gold').price * 10 * 1.1135371 * 1.03 * (1 - 0.084),
           }
         ];
   
@@ -241,7 +243,7 @@ const Home = () => {
                         >
                           {item.type} 
                         </IonCardTitle>
-                        <span> ₹{item.amount.toFixed(2)}</span>
+                        <span style={{fontWeight:'bold'}}> ₹{item.amount.toFixed(2)}</span>
                       </div>
                     </IonCardHeader>
           
@@ -288,7 +290,7 @@ const Home = () => {
                      
                       <div className="price-row">
                         <span>GST: 3%</span>
-                        <span>₹{item.amount.toFixed(2)}</span>
+                        <span style={{fontWeight:'bold'}}>₹{item.amount.toFixed(2)}</span>
                       </div>
                      
                     </IonCardContent>
@@ -298,6 +300,7 @@ const Home = () => {
                 <p>Loading data...</p>
               )}
             </div>
+            <div className="purchase-header">OLD GOLD PURCHASE</div>
             <div className="card-container">
               {oldGoldRates.length > 0 ? (
                 oldGoldRates.map((item, index) => (
@@ -317,7 +320,7 @@ const Home = () => {
                         >
                           {item.type}
                         </IonCardTitle>
-                        <span>₹{item.rate.toFixed(2)}</span>
+                        <span style={{fontWeight:'bold'}}>₹{item.rate.toFixed(2)}</span>
                       </div>
                     </IonCardHeader>
           

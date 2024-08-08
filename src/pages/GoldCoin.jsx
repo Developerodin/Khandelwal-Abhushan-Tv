@@ -59,9 +59,9 @@ const GoldCoin = () => {
 
     fetchGoldPrice(); // Initial call
 
-    const intervalId = setInterval(fetchGoldPrice, 10000); // 10000 milliseconds = 10 seconds
+    const intervalId = setInterval(fetchGoldPrice, 10000);
 
-    return () => clearInterval(intervalId); // Cleanup on unmount
+    return () => clearInterval(intervalId); 
 }, []);
 
   return (
@@ -78,7 +78,7 @@ const GoldCoin = () => {
     style={{ color: '#8E2927' }}
   />
 </IonButtons>
-        <div style={{ padding: '16px', marginBottom: '90px' }}>
+        <div style={{ padding: '0 16px 16px 16px', marginBottom: '90px' }}>
           <div className="image-container">
             <img src="/assets/gold-coin.png" alt="Gold Coin" className="gold-image" />
           </div>

@@ -4,6 +4,7 @@
   align-items: center;
   background-color: #F8EBD8;
   height: 200px;
+  border-bottom: 1px solid #A5590F    ;
 }
 
 .icon-background {
