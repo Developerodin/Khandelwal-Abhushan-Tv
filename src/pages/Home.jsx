@@ -372,6 +372,11 @@ const Home = () => {
               <p>+91 9823045584</p>
             </div>
           </div>
+          <div className="qr-section">
+            <img src="/assets/Khandelwal Abhushan.png" alt="QR Code" className="qr-image" />
+            <div className="qr-text">Download The App Now <br /> <span style={{fontSize:30}} >Scan QR Code</span></div>
+          </div>
+
       </IonContent>
     </IonPage>
   );

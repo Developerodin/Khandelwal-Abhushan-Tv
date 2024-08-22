@@ -123,8 +123,8 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin: 80px 0 80px 0;
-  padding-top: 100px;
+  margin: 40px 0 0 0;
+  
   text-align: center;
   padding-left: 32px;
   padding-right: 32px;
@@ -201,6 +201,29 @@
   color: #8E2927;
   font-family: 'Amiri', serif;
 }
+.qr-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  border-top: 1px solid #A5590F;
+
+}
+
+.qr-image {
+  padding: 20px;
+  width: 250px;
+  height: 250px;
+
+  
+}
+
+.qr-text {
+  font-size: 50px;
+  font-weight: bold;
+  color: #8E2927;
+  text-align: center;
+}
 
 /* New styles for mobile responsiveness and table scrolling */
 @media (max-width: 767px) {
@@ -269,6 +292,20 @@
     font-size: 24px;
     margin: 0;
     padding: 10px 0;
+  }
+  .qr-section {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+  }
+
+  .qr-image {
+    width: 150px; /* Adjust width for mobile */
+    height: 150px; /* Adjust height for mobile */
+  }
+
+  .qr-text {
+    padding: 10px 0; /* Add padding for better spacing */
+    font-size: 30px; /* Adjust font size for mobile */
   }
 }
 
